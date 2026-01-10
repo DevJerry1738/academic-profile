@@ -20,7 +20,7 @@ export default function LandingPage() {
       </header>
 
       <section className="container">
-        <h2 className="center">Why Choose Our Platform?</h2>
+        <h2 className={styles.center}>Why Choose Our Platform?</h2>
         <div className={styles.features}>
           <article className={styles.card}>
             <h3>Polished Professional Profiles</h3>

@@ -17,13 +17,27 @@ body {
   padding-block: calc(var(--spacing-base) * 8) calc(var(--spacing-base) * 4);
   border-bottom: 1px solid transparent;
   background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.35)), url('../assets/hero-bg.webp') center/cover no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
   color: var(--surface);
+}
+
+@media (max-width: 880px){
+  .hero{ background-attachment: scroll }
 } 
 
 .heroInner {
   max-width: var(--hero-max-width);
   margin-inline: auto;
   text-align: center;
+}
+
+/* Increase prominence of the first section heading after hero */
+.hero + .container .center{
+  margin-top: calc(var(--spacing-base) * 3);
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  color: var(--brand-accent);
+  font-weight:700;
 }
 
 .headline {
@@ -90,8 +104,13 @@ body {
   padding-inline: var(--spacing-base);
 }
 
+
 .center {
+  font-size: clamp(1.25rem, 3.6vw, 1.875rem);
+  font-weight: 700;
+color: var(--brand-accent);
   text-align: center;
+  
 }
 
 .features {
@@ -116,7 +135,7 @@ body {
 .card {
   background: var(--surface);
   padding: calc(var(--spacing-base) * 1.5);
-  border-radius: 0.75rem;
+  border-radius: 0 0.75rem 0 0.75rem; /* top-right & bottom-left rounded */
   border: 1px solid rgba(15,23,42,0.04);
   box-shadow: 0 4px 12px rgba(3,7,18,0.03);
   transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease;
