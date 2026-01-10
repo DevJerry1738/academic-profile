@@ -1,0 +1,22 @@
+.base{display:inline-flex;align-items:center;justify-content:center;border-radius:6px;padding:0.5rem 0.9rem;border:1px solid transparent;font-weight:600;cursor:pointer}
+.size-sm{padding:0.35rem 0.7rem;font-size:0.875rem}
+.size-md{padding:0.5rem 0.9rem;font-size:1rem}
+.size-lg{padding:0.75rem 1.1rem;font-size:1.05rem}
+
+.primary{background:var(--brand-primary);color:#013033;border-color:transparent}
+.primary:hover{filter:brightness(0.95)}
+
+.secondary{background:var(--brand-secondary);color:var(--brand-accent);border-color:transparent}
+.secondary:hover{filter:brightness(0.97)}
+
+.outline{background:transparent;color:var(--brand-accent);border:1px solid var(--border)}
+.outline:hover{background:rgba(0,0,0,0.02)}
+
+.ghost{background:transparent;color:var(--brand-accent);border:1px solid transparent}
+.ghost:hover{background:rgba(0,0,0,0.02)}
+
+.danger{background:#ff6b6b;color:white;border-color:transparent}
+
+.disabled{opacity:0.6;cursor:not-allowed}
+
+.focusVisible{outline:3px solid color-mix(in srgb, var(--brand-accent) 20%, transparent);outline-offset:2px}

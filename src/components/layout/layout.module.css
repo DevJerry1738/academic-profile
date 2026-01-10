@@ -1,0 +1,4 @@
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:72rem;margin-inline:auto;padding-inline:1.5rem;padding-block:0.75rem}
+.brand{font-weight:600}
+.actions{display:flex;gap:0.5rem}
+.signup{background:var(--color-accent);color:white;padding:0.35rem 0.6rem;border-radius:0.25rem;text-decoration:none}
