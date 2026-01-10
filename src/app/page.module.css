@@ -16,7 +16,7 @@ body {
 .hero {
   padding-block: calc(var(--spacing-base) * 8) calc(var(--spacing-base) * 4);
   border-bottom: 1px solid transparent;
-  background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.35)), url('../assets/hero-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.35)), url('../assets/hero-bg.webp') center/cover no-repeat;
   color: var(--surface);
 } 
 
