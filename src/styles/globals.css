@@ -72,7 +72,6 @@ small {
 }
 .page-main {
   min-height: 100vh;
-  padding-top: var(--nav-height);
 }
 
 /* Accessibility helpers */

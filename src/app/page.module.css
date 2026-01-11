@@ -14,19 +14,32 @@ body {
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-block: calc(var(--spacing-base) * 8) calc(var(--spacing-base) * 4);
   border-bottom: 1px solid transparent;
-  background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.35)), url('../assets/hero-bg.webp') center/cover no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
   color: var(--surface);
 }
 
-@media (max-width: 880px){
-  .hero{ background-attachment: scroll }
-} 
+.heroBg {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  background: url('../assets/hero-bg.webp') center/cover no-repeat;
+  z-index: -1;
+  will-change: transform;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.35));
+  z-index: 0;
+}
 
 .heroInner {
+  position: relative;
+  z-index: 1;
   max-width: var(--hero-max-width);
   margin-inline: auto;
   text-align: center;
@@ -48,7 +61,7 @@ body {
   max-width: 48rem;
   margin-inline: auto;
   text-shadow: 0 6px 18px rgba(3,7,18,0.35);
-} 
+}
 
 .sub {
   margin-top: var(--spacing-base);
@@ -83,7 +96,6 @@ body {
   background-color: var(--brand-accent);
 }
 
-
 .ctaSecondary {
   border: 1px solid var(--border);
   padding: calc(var(--spacing-base) * 0.75) calc(var(--spacing-base) * 1.5);
@@ -104,13 +116,11 @@ body {
   padding-inline: var(--spacing-base);
 }
 
-
 .center {
   font-size: clamp(1.25rem, 3.6vw, 1.875rem);
   font-weight: 700;
-color: var(--brand-accent);
+  color: var(--brand-accent);
   text-align: center;
-  
 }
 
 .features {
@@ -182,4 +192,34 @@ color: var(--brand-accent);
   font-size: 1.125rem;
   max-width: 36rem;
   margin-inline: auto;
+}
+
+/* General improvements: Add subtle fade-in animation for features */
+.features .card {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(0.1s * var(--index)); /* Assumes --index set via style if needed */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Improve button accessibility */
+.ctaRow button,
+.ctaSection button {
+  cursor: pointer;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 640px) {
+  .headline {
+    font-size: clamp(1.5rem, 8vw, 2.25rem);
+  }
+  .sub {
+    font-size: 1rem;
+  }
 }
