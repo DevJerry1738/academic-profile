@@ -2,11 +2,11 @@
 
 ## Overview
 Tone: Professional, academic, modern, credible.
-Primary font: **Manrope** (headings, body)
+Primary font: **Lato** (headings, body)
 
 ## Typography
-- Headings (h1, h2): Manrope, weight 600–700
-- Body text: Manrope, weight 400–500
+- Headings (h1, h2): Lato, weight 600–700
+- Body text: Lato, weight 400–500
 - Small text: 0.875rem, weight 400
 
 ## Color roles (CSS variables)

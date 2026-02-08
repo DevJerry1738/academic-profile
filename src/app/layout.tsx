@@ -1,6 +1,13 @@
+import { Lato } from "next/font/google"
 import "../styles/globals.css"
 import Navbar from "../components/layout/Navbar"
 import Footer from "../components/layout/Footer"
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-lato",
+})
 
 export default function RootLayout({
   children,
@@ -9,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="page-main">
+      <body className={`${lato.className} page-main`}>
         <Navbar />
         <main>{children}</main>
         <Footer />

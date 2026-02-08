@@ -31,7 +31,7 @@ export default function LandingPage() {
           </p>
           <div className={styles.ctaRow}>
             <Button href="/register" variant="primary" size="md">Get Started Now</Button>
-            <Button href="/profile/jdoe" variant="secondary" size="md">Explore a Sample</Button>
+            <Button href="/profile/sample" variant="secondary" size="md">Explore a Sample</Button>
           </div>
         </div>
       </header>
@@ -60,7 +60,7 @@ export default function LandingPage() {
         <div className="container center">
           <h2>Ready to Amplify Your Academic Impact?</h2>
           <p>Join thousands of scholars in creating profiles that open doors to new opportunities in research and education.</p>
-          <div style={{marginTop: '1rem'}}>
+          <div style={{ marginTop: '1rem' }}>
             <Button href="/register" variant="primary" size="md">Sign Up Today</Button>
           </div>
         </div>
