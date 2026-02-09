@@ -75,8 +75,8 @@ const profile = {
 import { FaFileAlt, FaLayerGroup, FaBriefcase, FaBook, FaGraduationCap, FaEnvelope, FaHome, FaEdit } from "react-icons/fa"
 
 const navItems = [
-  { label: "About", href: "#about", icon: FaFileAlt },
   { label: "Home", href: "#home", icon: FaHome },
+  { label: "About", href: "#about", icon: FaFileAlt },
   { label: "Expertise", href: "#expertise", icon: FaLayerGroup },
   { label: "Resume", href: "#resume", icon: FaBriefcase },
   { label: "Publications", href: "#publications", icon: FaBook },
@@ -127,16 +127,16 @@ export default function Sample2Profile() {
 
   return (
     <ProfileLayout>
-        <section id="home" className={styles.section}>
-      <ProfileHero
-        name={profile.name}
-        title={profile.title}
-        institution={profile.institution}
-        avatar={profile.avatar}
-        email={profile.email}
-        linkedin={profile.linkedin}
-      />
-        </section>
+      <section id="home" className={styles.section}>
+        <ProfileHero
+          name={profile.name}
+          title={profile.title}
+          institution={profile.institution}
+          avatar={profile.avatar}
+          email={profile.email}
+          linkedin={profile.linkedin}
+        />
+      </section>
 
       <div className={styles.container}>
         {/* Sticky Desktop Nav */}
