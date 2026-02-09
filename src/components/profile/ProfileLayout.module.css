@@ -53,13 +53,24 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    padding: 0.75rem 1.5rem;
-    justify-content: space-between;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     z-index: 50;
-    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobileNav::-webkit-scrollbar {
+    display: none;
+}
+
+.mobileNavContainer {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    min-width: max-content;
 }
 
 .mobileNavItem {
@@ -69,11 +80,25 @@
     gap: 0.25rem;
     color: var(--muted);
     font-size: 0.75rem;
+    font-weight: 500;
     text-decoration: none;
+    transition: color 0.2s ease, transform 0.1s ease;
+    min-width: 4rem;
+    border: none;
+    background-color: white;
 }
 
 .mobileNavItem svg {
     font-size: 1.25rem;
+}
+
+.mobileNavItem:hover,
+.mobileNavItem:focus-visible {
+    color: var(--brand-primary);
+}
+
+.mobileNavItem:active {
+    transform: scale(0.95);
 }
 
 .mobileNavItemActive {

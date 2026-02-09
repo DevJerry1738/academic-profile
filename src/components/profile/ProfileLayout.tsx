@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { FaUser, FaBook, FaBriefcase, FaGraduationCap, FaFileAlt, FaEnvelope, FaLayerGroup } from "react-icons/fa"
+import { FaUser, FaBook, FaBriefcase, FaGraduationCap, FaFileAlt, FaEnvelope, FaLayerGroup, FaEdit } from "react-icons/fa"
 import styles from "./ProfileLayout.module.css"
 
 interface ProfileLayoutProps {
@@ -10,13 +10,14 @@ interface ProfileLayoutProps {
 }
 
 const navItems = [
-    { id: "hero", label: "Home", icon: FaUser },
-    { id: "about", label: "About", icon: FaFileAlt },
-    { id: "expertise", label: "Expertise", icon: FaLayerGroup },
-    { id: "resume", label: "Resume", icon: FaBriefcase },
-    { id: "publications", label: "Research", icon: FaBook },
-    { id: "services", label: "Services", icon: FaGraduationCap },
-    { id: "contact", label: "Contact", icon: FaEnvelope },
+    { id: "hero", label: "Home", icon: <FaUser /> },
+    { id: "about", label: "About", icon: <FaFileAlt /> },
+    { id: "expertise", label: "Expertise", icon: <FaLayerGroup /> },
+    { id: "resume", label: "Resume", icon: <FaBriefcase /> },
+    { id: "publications", label: "Research", icon: <FaBook /> },
+    { id: "services", label: "Services", icon: <FaGraduationCap /> },
+    { id: "contact", label: "Contact", icon: <FaEnvelope /> },
+    { id: "edit", label: "Edit Prifile", icon: <FaEdit /> },
 ]
 
 export default function ProfileLayout({ children }: ProfileLayoutProps) {
@@ -73,20 +74,6 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
 
             {/* Main Content */}
             <main>{children}</main>
-
-            {/* Mobile Navigation */}
-            <nav className={styles.mobileNav}>
-                {navItems.map((item) => (
-                    <button
-                        key={item.id}
-                        onClick={() => scrollToSection(item.id)}
-                        className={`${styles.mobileNavItem} ${activeSection === item.id ? styles.mobileNavItemActive : ""}`}
-                    >
-                        <item.icon />
-                        <span>{item.label}</span>
-                    </button>
-                ))}
-            </nav>
         </div>
     )
 }

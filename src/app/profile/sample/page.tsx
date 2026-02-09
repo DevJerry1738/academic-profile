@@ -1,3 +1,5 @@
+"use client"
+
 import ProfileLayout from "../../../components/profile/ProfileLayout"
 import ProfileHero from "../../../components/profile/ProfileHero"
 import ProfileAbout from "../../../components/profile/ProfileAbout"
@@ -7,6 +9,7 @@ import ProfilePublications from "../../../components/profile/ProfilePublications
 import ProfileServices from "../../../components/profile/ProfileServices"
 import ProfileContact from "../../../components/profile/ProfileContact"
 import styles from "./page.module.css"
+import { useState, useEffect } from "react"
 
 
 const profile = {
@@ -49,7 +52,7 @@ const profile = {
   ],
 }
 
-import { FaUser, FaFileAlt, FaLayerGroup, FaBriefcase, FaBook, FaGraduationCap, FaEnvelope } from "react-icons/fa"
+import { FaUser, FaFileAlt, FaLayerGroup, FaBriefcase, FaBook, FaGraduationCap, FaEnvelope, FaEdit } from "react-icons/fa"
 
 const navItems = [
   { label: "About", href: "#about", icon: FaFileAlt },
@@ -58,9 +61,45 @@ const navItems = [
   { label: "Publications", href: "#publications", icon: FaBook },
   { label: "Services", href: "#services", icon: FaGraduationCap },
   { label: "Contact", href: "#contact", icon: FaEnvelope },
+  { label: "Edit Profile", href: "#edit", icon: FaEdit },
 ]
 
 export default function SampleProfile() {
+  const [activeSection, setActiveSection] = useState("about")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map((item) => {
+        const id = item.href.replace("#", "")
+        return document.getElementById(id)
+      })
+      const scrollPosition = window.scrollY + 200
+
+      for (const section of sections) {
+        if (section && section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+          setActiveSection(section.id)
+          break
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    // Auto-scroll mobile nav to show active item
+    const activeLinkSelector = `a[href="#${activeSection}"]`
+    const activeLink = document.querySelector(activeLinkSelector)
+
+    if (activeLink) {
+      activeLink.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      })
+    }
+  }, [activeSection])
   return (
     <ProfileLayout>
       <ProfileHero
@@ -77,14 +116,18 @@ export default function SampleProfile() {
         <aside className={styles.sidebar}>
           <nav className={styles.desktopNav} aria-label="Profile sections">
             <ul className={styles.navList}>
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} className={styles.navLink}>
-                    <item.icon className={styles.navIcon} />
-                    <span>{item.label}</span>
-                  </a>
-                </li>
-              ))}
+              {navItems.map((item) => {
+                const sectionId = item.href.replace("#", "")
+                const isActive = activeSection === sectionId
+                return (
+                  <li key={item.href}>
+                    <a href={item.href} className={styles.navLink} aria-current={isActive ? "page" : undefined}>
+                      <item.icon className={styles.navIcon} />
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
         </aside>
@@ -123,13 +166,18 @@ export default function SampleProfile() {
       {/* Mobile Bottom Nav */}
       <nav className={styles.mobileNav} aria-label="Profile sections">
         <ul className={styles.mobileNavList}>
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} className={styles.mobileNavLink}>
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const sectionId = item.href.replace("#", "")
+            const isActive = activeSection === sectionId
+            return (
+              <li key={item.href}>
+                <a href={item.href} className={styles.mobileNavLink} aria-current={isActive ? "page" : undefined}>
+                  <item.icon className={styles.navIcon} />
+                  <span className={styles.navText}>{item.label}</span>
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </nav>
     </ProfileLayout>
