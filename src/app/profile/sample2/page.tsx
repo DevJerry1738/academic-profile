@@ -72,15 +72,17 @@ const profile = {
   ],
 }
 
-import { FaFileAlt, FaLayerGroup, FaBriefcase, FaBook, FaGraduationCap, FaEnvelope } from "react-icons/fa"
+import { FaFileAlt, FaLayerGroup, FaBriefcase, FaBook, FaGraduationCap, FaEnvelope, FaHome, FaEdit } from "react-icons/fa"
 
 const navItems = [
   { label: "About", href: "#about", icon: FaFileAlt },
+  { label: "Home", href: "#home", icon: FaHome },
   { label: "Expertise", href: "#expertise", icon: FaLayerGroup },
   { label: "Resume", href: "#resume", icon: FaBriefcase },
   { label: "Publications", href: "#publications", icon: FaBook },
   { label: "Services", href: "#services", icon: FaGraduationCap },
   { label: "Contact", href: "#contact", icon: FaEnvelope },
+  { label: "Edit Profile", href: "#edit", icon: FaEdit },
 ]
 
 export default function Sample2Profile() {
