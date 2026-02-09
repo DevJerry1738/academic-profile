@@ -86,7 +86,7 @@ const navItems = [
 ]
 
 export default function Sample2Profile() {
-  const [activeSection, setActiveSection] = useState("about")
+  const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
     const handleScroll = () => {
