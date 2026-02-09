@@ -8,6 +8,7 @@ import ProfileServices from "../../../components/profile/ProfileServices"
 import ProfileContact from "../../../components/profile/ProfileContact"
 import styles from "./page.module.css"
 
+
 const profile = {
   name: "Prof. Oyedunni S. Arulogun",
   title: "Professor of Health Promotion and Education",

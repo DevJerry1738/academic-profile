@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    padding: 4rem 0 6rem;
+    padding: 4rem 0 4rem;
     background: linear-gradient(135deg, rgba(248, 250, 252, 1) 0%, rgba(226, 232, 240, 0.5) 100%);
     overflow: hidden;
 }
