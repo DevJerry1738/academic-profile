@@ -127,6 +127,7 @@ export default function Sample2Profile() {
 
   return (
     <ProfileLayout>
+        <section id="home" className={styles.section}>
       <ProfileHero
         name={profile.name}
         title={profile.title}
@@ -135,6 +136,7 @@ export default function Sample2Profile() {
         email={profile.email}
         linkedin={profile.linkedin}
       />
+        </section>
 
       <div className={styles.container}>
         {/* Sticky Desktop Nav */}
