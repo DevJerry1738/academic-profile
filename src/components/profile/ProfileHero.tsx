@@ -1,11 +1,12 @@
 import { FaLinkedin, FaEnvelope, FaTwitter, FaGlobe } from "react-icons/fa"
+import Image from "next/image"
 import styles from "./ProfileHero.module.css"
 
 interface ProfileHeroProps {
     name: string
     title: string
     institution: string
-    avatar: string
+    avatar: string | { src: string; width: number; height: number }
     email?: string
     linkedin?: string
     website?: string
@@ -27,7 +28,11 @@ export default function ProfileHero({
             <div className="container">
                 <div className={styles.heroContent}>
                     <div className={styles.imageWrapper}>
-                        <img src={avatar} alt={name} className={styles.avatar} />
+                        {typeof avatar === "string" ? (
+                            <img src={avatar} alt={name} className={styles.avatar} />
+                        ) : (
+                            <Image src={avatar} alt={name} className={styles.avatar} />
+                        )}
                     </div>
 
                     <div className={styles.info}>

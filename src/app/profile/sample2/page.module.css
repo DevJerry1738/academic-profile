@@ -1,0 +1,223 @@
+:root {
+  --profile-max-width: 72rem;
+  --color-primary: #00458b;
+  --color-secondary: #475569;
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: var(--profile-max-width);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    gap: 3rem;
+  }
+}
+
+.mainContent {
+  min-width: 0;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding-block: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== Desktop Sticky Nav ===== */
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block;
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+  }
+
+  .desktopNav {
+    /* background: rgba(255, 255, 255, 0.7); */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  .navList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+  }
+
+  .navLink {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-secondary);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .navIcon {
+    font-size: 1.1em;
+    opacity: 0.8;
+    transition: transform 0.2s ease;
+  }
+
+  .navLink:hover,
+  .navLink[aria-current="page"] {
+    /* background: rgba(163, 159, 159, 0.8); */
+    color: var(--brand-primary);
+    transform: translateX(4px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  .navLink:hover .navIcon,
+  .navLink[aria-current="page"] .navIcon {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ===== Mobile Bottom Nav ===== */
+.mobileNav {
+  position: fixed;
+  bottom: 0;
+  inset-inline: 0;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(12px);
+  z-index: 50;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -6px 18px rgba(16, 24, 40, 0.04);
+}
+
+.mobileNavList {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  justify-content: flex-start;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  list-style: none;
+  margin: 0;
+}
+
+.mobileNavList::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileNavLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 200ms ease, transform 120ms ease;
+  scroll-snap-align: center;
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobileNavLink:focus-visible {
+  outline: none;
+  color: var(--brand-primary);
+}
+
+.mobileNavLink[aria-current="page"] {
+  color: var(--brand-primary);
+}
+
+.mobileNavLink:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* small underline indicator that animates in on active/current */
+.mobileNavLink::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  bottom: 6px;
+  height: 3px;
+  width: 28px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--brand-primary), #6aa6ff);
+  transform-origin: center;
+  transition: transform 240ms cubic-bezier(0.2, 0, 0, 1);
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+/* reveal indicator on active press only (not on current page) */
+.mobileNavLink:active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navIcon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: transform 160ms ease, color 200ms ease;
+}
+
+.mobileNavLink:hover .navIcon {
+  transform: translateY(-3px) scale(1.06);
+  color: var(--brand-primary);
+}
+
+.navText {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: inherit;
+}
+
+@media (min-width: 1024px) {
+  .mobileNav {
+    display: none;
+  }
+}
+
+/* Prevent overlap */
+@media (max-width: 1023px) {
+  .mainContent {
+    padding-bottom: 5rem;
+  }
+}

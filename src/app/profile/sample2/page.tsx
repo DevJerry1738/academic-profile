@@ -8,65 +8,83 @@ import ProfileResume from "../../../components/profile/ProfileResume"
 import ProfilePublications from "../../../components/profile/ProfilePublications"
 import ProfileServices from "../../../components/profile/ProfileServices"
 import ProfileContact from "../../../components/profile/ProfileContact"
+import ProfileImage from "../../../assets/profileimage.png"
 import styles from "./page.module.css"
 import { useState, useEffect } from "react"
 
-
 const profile = {
-  name: "Prof. Oyedunni S. Arulogun",
-  title: "Professor of Health Promotion and Education",
-  institution: "Chrisland University",
-  bio: "Oyedunni Sola Arulogun is a Nigerian professor of health promotion and education. She is the second and incumbent vice-chancellor of Chrisland University, a private university in Owode, Abeokuta, Ogun State. She holds the title Professor of Health Promotion and Education and is known as a speech pathology and audiology expert. She previously served as the director of the Centre for Entrepreneurship and Innovation at the University of Ibadan.",
+  name: "Dr. Olalekan Joel Awujoola",
+  title: "Chief System Analyst and Programmer",
+  institution: "Nigerian Defence Academy",
+  bio: "A seasoned Chief System Analyst and Programmer with over two decades of experience, specializing in technological innovation, computational modeling, and algorithm development.",
   research: [
-    "Health Promotion and Education",
-    "Speech Pathology and Audiology",
-    "Reproductive Health",
-    "Stroke Studies",
-    "Community Health Interventions",
+    "Machine Learning & Deep Learning",
+    "Healthcare AI Applications",
+    "Cybersecurity & Network Security",
+    "Medical Image Analysis",
+    "Computational Modeling",
   ],
   education: [
-    { degree: "Ph.D., Health Promotion and Education", institution: "University of Ibadan", year: "1998" },
-    { degree: "M.P.H.", institution: "University of Ibadan", year: "1992" },
-    { degree: "M.Ed., Special Education", institution: "University of Ibadan", year: "1989" },
-    { degree: "B.Ed., Special Education", institution: "University of Ibadan", year: "1987" },
+    { degree: "Ph.D. in Computer Science", institution: "Nigerian Defence Academy, Kaduna", year: "2024" },
+    { degree: "M.Sc. in Information Technology", institution: "National Open University of Nigeria", year: "2024" },
+    { degree: "M.Sc. in Computer Science", institution: "Ahmadu Bello University, Zaria", year: "2016" },
+    { degree: "M.Sc. in Nuclear and Radiation Physics", institution: "Nigerian Defence Academy, Kaduna", year: "2012" },
+    { degree: "B.Tech in Mathematics Education with Computer Science", institution: "Federal University of Technology, Minna", year: "1998" },
   ],
   employment: [
-    { role: "Vice-Chancellor", institution: "Chrisland University", years: "2024–present" },
-    { role: "Director, Centre for Entrepreneurship and Innovation", institution: "University of Ibadan", years: "2019–2024" },
+    { role: "Chief System Analyst / Programmer", institution: "Nigerian Defence Academy, Kaduna", years: "August 2001–Present" },
+    { role: "Adjunct Lecturer", institution: "Stepping Stone Advertising, New York, NY", years: "2013–Present" },
   ],
   publications: [
-    { title: "Community Insight on Stroke Genomics", year: "2022", journal: "Journal of Community Genetics" },
+    { title: "Integration of layer-wise relevance propagation, recursive data pruning, and convolutional neural networks for improved text classification", year: "2025", journal: "FUDMA Journal of Sciences" },
+    { title: "Mitigating Class Imbalance in Tuberculosis Detection: Combining Smote and Tomek Link with Modified Focal Loss and Class Weighting In a Transfer Learning Framework", year: "2025", journal: "FUDMA Journal of Sciences" },
+    { title: "Performance evaluation of efficientnetv2 models on the classification of histopathological benign breast cancer images", year: "2024", journal: "Science Journal of University of Zakho" },
+    { title: "A Combined Approach Of Adasyn And Tomeklink For Anomaly Network Intrusion Detection System Using Some Selected Machine Learning Algorithms", year: "2024", journal: "International Journal of Web Research" },
+    { title: "Malware detection and classification using embedded convolutional neural network and long short-term memory technique", year: "2023", journal: "Science World Journal" },
   ],
-  avatar: "https://tribuneonlineng.com/wp-content/uploads/2020/01/IMG-20191225-WA0026.jpg",
-  email: "vc@chrislanduniversity.edu.ng",
-  linkedin: "https://ng.linkedin.com/in/oyedunni-arulogun-b4525b38",
-  phone: "+234 800 123 4567",
-  address: "Chrisland University, Ogun State, Nigeria",
+  avatar: ProfileImage,
+  email: "ojawujoola@nda.edu.ng",
+  linkedin: "https://linkedin.com/in/olalekan-awujoola",
+  phone: "+234 803 705 3088",
+  address: "Nigerian Defence Academy, PMB 2109, Kaduna, Kaduna State, Nigeria",
   skills: [
-    { name: "Health Promotion", level: 95 },
-    { name: "Academic Leadership", level: 90 },
+    { name: "TensorFlow", level: 100 },
+    { name: "Machine Learning", level: 100 },
+    { name: "Data Analysis", level: 100 },
+    { name: "Security Analysis", level: 100 },
+    { name: "Python", level: 90 },
+    { name: "PyTorch", level: 90 },
+    { name: "Keras", level: 90 },
+    { name: "Neural Network", level: 90 },
+    { name: "Deep Learning", level: 90 },
+    { name: "Malware Detection", level: 90 },
+    { name: "SQL", level: 85 },
+    { name: "Digital Forensic", level: 85 },
+    { name: "Network Intrusion Detection", level: 80 },
+    { name: "PHP", level: 80 },
+    { name: "scikit-learn", level: 75 },
   ],
   services: [
-    { title: "Academic Mentorship", description: "Guiding students and junior faculty." },
-    { title: "Research Collaboration", description: "Public health research partnerships." },
+    { title: "AI Research & Development", description: "Machine learning and deep learning model development for healthcare and cybersecurity applications." },
+    { title: "Technical Mentorship", description: "Guiding junior researchers and cadets in software development and AI methodologies." },
+    { title: "Cybersecurity Solutions", description: "Network intrusion detection, malware classification, and digital forensics." },
+    { title: "Academic Collaboration", description: "Research partnerships and collaborative projects in AI and computational modeling." },
   ],
 }
 
-import { FaUser, FaFileAlt, FaLayerGroup, FaBriefcase, FaBook, FaGraduationCap, FaEnvelope, FaEdit } from "react-icons/fa"
+import { FaFileAlt, FaLayerGroup, FaBriefcase, FaBook, FaGraduationCap, FaEnvelope } from "react-icons/fa"
 
 const navItems = [
-  { label: "Home", href: "#home", icon: FaUser },
   { label: "About", href: "#about", icon: FaFileAlt },
   { label: "Expertise", href: "#expertise", icon: FaLayerGroup },
   { label: "Resume", href: "#resume", icon: FaBriefcase },
   { label: "Publications", href: "#publications", icon: FaBook },
   { label: "Services", href: "#services", icon: FaGraduationCap },
   { label: "Contact", href: "#contact", icon: FaEnvelope },
-  { label: "Edit Profile", href: "#edit", icon: FaEdit },
 ]
 
-export default function SampleProfile() {
-  const [activeSection, setActiveSection] = useState("home")
+export default function Sample2Profile() {
+  const [activeSection, setActiveSection] = useState("about")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,10 +122,10 @@ export default function SampleProfile() {
       })
     }
   }, [activeSection, styles])
+
   return (
     <ProfileLayout>
-      <section id="home" className={styles.section}>
-         <ProfileHero
+      <ProfileHero
         name={profile.name}
         title={profile.title}
         institution={profile.institution}
@@ -115,8 +133,6 @@ export default function SampleProfile() {
         email={profile.email}
         linkedin={profile.linkedin}
       />
-      </section>
-     
 
       <div className={styles.container}>
         {/* Sticky Desktop Nav */}
@@ -152,7 +168,7 @@ export default function SampleProfile() {
             <ProfileResume
               education={profile.education}
               experience={profile.employment}
-              cvUrl="/Prof-Oyedunni-Arulogun-CV.pdf"
+              cvUrl="/Dr-Olalekan-Awujoola-CV.pdf"
             />
           </section>
 
